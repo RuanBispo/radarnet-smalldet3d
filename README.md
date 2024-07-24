@@ -77,7 +77,7 @@ Coloque o arquivo 'bevformer_raw.pth' em 'ckpts/raw_model' e coloque 'R101-DCN' 
 **Estrutura das pastas**
 
 ```plain
-REPO
+radarnet-smalldet3d
 ├── ckpts        # pasta dos checkpoints
 │   ├── raw_model/
 │   │   └── bevformer_raw.pth
