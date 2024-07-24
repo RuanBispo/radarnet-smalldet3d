@@ -9,7 +9,7 @@
 <br />
 <div align="center">
     <p align="center">
-        <img src="docs/img/overall", alt="arch", width="600"/>
+        <img src="docs/img/overall.png", alt="arch", width="600"/>
     </p>
     <p align="center">
         <img src="docs/img/radar_adaptado.png", alt="rad", width="600">
