@@ -45,10 +45,14 @@ ______________________________________________________________________
 Para facilitar a reprodutibilidade do projeto disponibilizamos um [Dockerfile](docker/Dockerfile), basta entrar na pasta e criar a imagem usando o comando abaixo colocando um nome para variável image-name desejado.
 
 ```
-docker build . -t image-name
+docker build -t image-name -f ./docker/Dockerfile .
 ```
 
 Após basta executar o arquivo [run](docker/run.sh). Lembrando que para isso é preciso ter instalado o docker engine localmente como em [Docker](https://docs.docker.com/engine/install/), bem como seu suporte para GPU em caso de disponibilidade de GPU através do guia [Nvidia-Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
+
+```
+bash docker/create_container.sh
+```
 
 ### Preparação dos dados
 
