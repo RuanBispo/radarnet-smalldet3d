@@ -1,4 +1,4 @@
-nuscenes_path='~/Downloads/nuScenes/'
+nuscenes_path='/home/ruan/Downloads/nuScenes/'
 
 docker run -d \
   --restart=always \
