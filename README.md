@@ -24,7 +24,7 @@ ______________________________________________________________________
   - [Resumo](#resumo)
   - [Instalação](#instalação)
     - [Preparação dos dados](#preparação-dos-dados)
-      - [Download (nuscenes dataset)](#download-nuscenes-datasett)
+      - [Download (nuscenes dataset)](#download-nuscenes-dataset)
       - [Generar anotações](#generar-anotações)
     - [Treinamento](#treinamento)
     - [Teste](#teste)
@@ -42,17 +42,33 @@ ______________________________________________________________________
 
 ### Instalação
 
-Para facilitar a reprodutibilidade do projeto disponibilizamos um [Dockerfile](docker/Dockerfile), basta entrar na pasta e criar a imagem usando o comando abaixo colocando um nome para variável image-name desejado.
+Para facilitar a reprodutibilidade do projeto disponibilizamos um [Dockerfile](docker/Dockerfile). Lembrando que para isso é preciso ter instalado o docker engine localmente como em [Docker](https://docs.docker.com/engine/install/ubuntu/), caso queria evitar de usar sudo em cada comando, bas configurar como em [Docker-no_sudo](https://docs.docker.com/engine/install/linux-postinstall/). Tambem e necessario instalar o suporte para GPU, em caso de disponibilidade de GPU através do guia [Nvidia-Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). 
 
-```
-docker build -t image-name -f ./docker/Dockerfile .
+Em sequencia, entre no repositorio e crie a imagem usando o comando abaixo.
+
+```shell
+docker build -t radarnet-image -f ./docker/Dockerfile .
 ```
 
-Após basta executar o arquivo [run](docker/run.sh). Lembrando que para isso é preciso ter instalado o docker engine localmente como em [Docker](https://docs.docker.com/engine/install/), bem como seu suporte para GPU em caso de disponibilidade de GPU através do guia [Nvidia-Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
+Após isso, basta executar o arquivo [run](docker/run.sh).
 
-```
+```shell
 bash docker/create_container.sh
 ```
+
+Com isso seu ambiente pode ser acessado atraves do container radarnet, uma das formas e utilizando o comando abaixo.
+
+```shell
+docker exec -it radarnet /bin/bash
+```
+
+Como ultima etapa execute o arquivo setup.py dentro do container.
+
+```shell
+python -v -e . # ou python setup.py develop
+```
+
+A partir de agora todos os proximos comandos e uso do repositorio deve ser feito dentro do container.
 
 ### Preparação dos dados
 
@@ -64,7 +80,7 @@ Para download do dataset siga as instruções oficiais do dataset, fazendo downl
 
 É preciso realizar esse processo pois as anotações contem arquivos de caminhos, assim, após gerar essa etapa não mova os dados para outra localização, ou terá que refazer o processo.
 
-```
+```shell
 bash scripts/create_data.sh
 ```
 
@@ -112,13 +128,13 @@ radarnet-smalldet3d
 
 ### Treinamento
 
-```
+```shell
 bash scripts/train.sh
 ```
 
 ### Teste
 
-```
+```shell
 bash scripts/test.sh
 ```
 
