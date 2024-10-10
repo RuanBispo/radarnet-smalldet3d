@@ -42,7 +42,7 @@ ______________________________________________________________________
 
 ### Instalação
 
-Para facilitar a reprodutibilidade do projeto disponibilizamos um [Dockerfile](docker/Dockerfile). Lembrando que para isso é preciso ter instalado o docker engine localmente como em [Docker](https://docs.docker.com/engine/install/ubuntu/), caso queria evitar de usar sudo em cada comando, bas configurar como em [Docker-no_sudo](https://docs.docker.com/engine/install/linux-postinstall/). Tambem e necessario instalar o suporte para GPU, em caso de disponibilidade de GPU através do guia [Nvidia-Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). 
+Para facilitar a reprodutibilidade do projeto disponibilizamos um [Dockerfile](docker/Dockerfile). Lembrando que para isso é preciso ter instalado o docker engine localmente como em [Docker](https://docs.docker.com/engine/install/ubuntu/), caso queria evitar de usar sudo em cada comando, bas configurar como em [Docker-nosudo](https://docs.docker.com/engine/install/linux-postinstall/). Tambem e necessario instalar o suporte para GPU, em caso de disponibilidade de GPU através do guia [Nvidia-Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). Se enfrentar problemas para acessar a GPU de dentro do container [ConfigGPU](https://stackoverflow.com/questions/72932940/failed-to-initialize-nvml-unknown-error-in-docker-after-few-hours)
 
 Em sequencia, entre no repositorio e crie a imagem usando o comando abaixo.
 
