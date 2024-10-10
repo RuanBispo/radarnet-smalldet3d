@@ -1,15 +1,11 @@
-docker run \
-  -it \
-  --gpus all \
-  -v "${PWD}/:/code" \
-  -v "nuscenes-path:/data" \
-  image-name \
-  /bin/bash
+nuscenes_path='~/Downloads/nuScenes/'
 
-# Instructions:
-### -it (run iteratively)
-### --gpus all (use all GPUS. You can also select one)
-### -v (mounted folders. The first is the code folder, 
-###     and the second is the data. You should change nuscenes-path
-###     variable using your path)
-### image-name (it is the name you gave when you built the image)
+docker run -d \
+  --restart=always \
+  --gpus all \
+  --shm-size 15gb \
+  -v "${PWD}/:/code" \
+  -v "${nuscenes_path}:/code/data/nuScenes" \
+  --name "radarnet" \
+  radarnet-image \
+  tail -f /dev/null
